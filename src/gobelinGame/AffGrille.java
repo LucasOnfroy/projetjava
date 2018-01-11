@@ -11,6 +11,9 @@ class AffGrille extends JPanel { // Classe personnelle qui cr�e une grile hexa
   int y=0;
   int z=0;
   Polygon pol;
+
+  private Image img;
+
   @Override
   public void paint(Graphics arg0) {
     Polygon p2=getPolygon(0, 0, cote); // Cr�e un hexagone
@@ -20,9 +23,12 @@ class AffGrille extends JPanel { // Classe personnelle qui cr�e une grile hexa
     super.paint(arg0);
     Graphics2D g2d;
 
-
+    ImageIcon i= new ImageIcon(getClass().getResource("img/Plateau.png"));
+    img = i.getImage();
 
     g2d=(Graphics2D) arg0;
+    //g2d.drawImage(img, x, 0, null);
+    g2d.drawImage(img,0,0,1936,1056,null);
     BasicStroke bs1=new BasicStroke(1);// Permet de fixer l'�paisseur du trait dans la suite
     BasicStroke bs2=new BasicStroke(2);// Idem
     BasicStroke bs3=new BasicStroke(3);// Idem

@@ -8,9 +8,11 @@ public class Grille {
 
     public static void main(String[] args) {
 
-        JFrame win=new JFrame(); // Cr�e la fenetre principale
-        JPanel jp=(JPanel) win.getContentPane(); // R�cup�re le conteneur de la fen�tre
-        final AffGrille jp2=new AffGrille(); // Cr�e une instance de la classe priv�e AffGrille
+        GameMenu gamemenu = new GameMenu();
+
+        JFrame win=new JFrame(); // Crée la fenetre principale
+        JPanel jp=(JPanel) win.getContentPane(); // Récupère le conteneur de la fenêtre
+        final AffGrille jp2=new AffGrille(); // Crée une instance de la classe privée AffGrille
         jp2.addMouseMotionListener(new MouseMotionListener(){
             Polygon p;
             @Override
@@ -22,26 +24,26 @@ public class Grille {
             public void mouseMoved(MouseEvent arg0) {
                 p=jp2.pol;
                 if(!p.contains(arg0.getPoint())){
-                    jp2.repaint();
+                    jp2.repaint(); // Repeins jp2 lorsque la souris se déplace
                 }
             }
-
-        });// Repeind jp2 lorsque la souris se déplace
+        });
         jp2.addMouseListener(new MouseAdapter(){
 
             @Override
             public void mouseClicked(MouseEvent arg0) {
                 super.mouseClicked(arg0);
-                JOptionPane.showMessageDialog(null,"Hexagone n�:"+jp2.numero + " " + jp2.x + jp2.y + jp2.z);
+                JOptionPane.showMessageDialog(null,"Hexagone n°:"+jp2.numero + "\n" +  " x=" + jp2.x + "\n" + " y=" + jp2.y +  "\n" + " z=" + jp2.z);
             }
 
-        });// Evenement qui survient au clicque
-        jp.add(jp2);// Ajoute le composant à la fenêtre
+        });// Evenement qui survient au clic
+        jp.add(jp2);// Ajoute le composant à la fenêtres
         //win.setSize(640, 480); Ancienne dimension la fenetre
         win.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH); // Redimensionner la fenetre
         win.setVisible(true);// Affiche la fenetre
+        System.out.print(win.getSize());
 
-        win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// Permet de quiter l'application à la fermeture de la fen�tre
+        win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// Permet de quiter l'application à la fermeture de la fenêtre
     }
 
 }
