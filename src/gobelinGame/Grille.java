@@ -41,7 +41,6 @@ public class Grille {
         //win.setSize(640, 480); Ancienne dimension la fenetre
         win.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH); // Redimensionner la fenetre
         win.setVisible(true);// Affiche la fenetre
-        System.out.print(win.getSize());
 
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// Permet de quiter l'application à la fermeture de la fenêtre
     }

@@ -5,7 +5,7 @@ import java.awt.*;
 
 @SuppressWarnings("serial")
 class AffGrille extends JPanel { // Classe personnelle qui cr�e une grile hexagonale.
-  final static int cote=26; // Ceci d�finit la taille du c�t� d'un polygone
+  final static int cote=30; // Ceci d�finit la taille du c�t� d'un polygone
   int numero=0; // Retien le n� du polygone sur lequel est la souris
   int x=0;
   int y=0;
@@ -16,19 +16,19 @@ class AffGrille extends JPanel { // Classe personnelle qui cr�e une grile hexa
 
   @Override
   public void paint(Graphics arg0) {
-    Polygon p2=getPolygon(0, 0, cote); // Cr�e un hexagone
-    Rectangle r=p2.getBounds(); // R�cup�re le plus petit rectangle // aux bord de la fen�tre dans lequel l'hexagone peut s'inscrire
+    Polygon p2=getPolygon(0, 0, cote); // Crée un hexagone
+    Rectangle r=p2.getBounds(); // Récupère le plus petit rectangle // aux bord de la fen�tre dans lequel l'hexagone peut s'inscrire
     Point hovered=null;
     arg0.setColor(Color.black);
     super.paint(arg0);
     Graphics2D g2d;
 
-    ImageIcon i= new ImageIcon(getClass().getResource("img/Plateau.png"));
+    ImageIcon i= new ImageIcon(getClass().getResource("img/map.png"));
     img = i.getImage();
 
     g2d=(Graphics2D) arg0;
     //g2d.drawImage(img, x, 0, null);
-    g2d.drawImage(img,0,0,1936,1056,null);
+    g2d.drawImage(img,0,0,1300,1000,null);
     BasicStroke bs1=new BasicStroke(1);// Permet de fixer l'�paisseur du trait dans la suite
     BasicStroke bs2=new BasicStroke(2);// Idem
     BasicStroke bs3=new BasicStroke(3);// Idem
@@ -52,7 +52,6 @@ class AffGrille extends JPanel { // Classe personnelle qui cr�e une grile hexa
           pol=poly;
         }
         g2d.draw(poly);
-
       }
     }
     for(int l=1;l<30;l=l+2){
@@ -96,7 +95,6 @@ class AffGrille extends JPanel { // Classe personnelle qui cr�e une grile hexa
       g2d.setStroke(bs4);
       g2d.fill(p);
       //g2d.draw(p);
-
 
     }
   }
